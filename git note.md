@@ -32,13 +32,19 @@ git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存
 git diff //不加参数即默认比较工作区与暂存区
 git diff —staged //比较暂存区与最新本地版本库
 ```
-##### 远程仓库与分支
+##### 本地分支
 ```
 git branch <newname> //创建分支，指向当前本地版本库
 git branch -d <name> //删除分支
+git branch -v //查看每一个分支的最后一次提交
+git branch --merged //查看哪些分支已经合并到当前分支(然后就可以删除那个分支了)
 git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
-
+git merge <name> //把分支xxx合并到当前分支（若2分支diverged，叫合并提交，自动创建基于2个父提交的新快照，并指向它）
+//合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理
+```
+##### 远程分支
+```
 git remote -v //查看远程仓库
 git push
 git checkout -b  xxx orgin/xxxx
