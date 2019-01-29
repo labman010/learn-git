@@ -34,9 +34,11 @@ git diff —staged //比较暂存区与最新本地版本库
 ```
 ##### 远程仓库与分支
 ```
-git remote -v //查看远程仓库
 git branch <newname> //创建分支，指向当前本地版本库
-git checkout <name> //切换当前分支
+git checkout -b <newname> //新建分支并切换到上面
+git checkout <name> //切换当前分支(会改变本地内容)
+
+git remote -v //查看远程仓库
 git push
 git checkout -b  xxx orgin/xxxx
 git checkout master
