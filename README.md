@@ -1,7 +1,5 @@
-it is a normal document.
+it is a normal document.  
+一个可交互的git学习项目，git沙盒：  
 
-now we goto master branch!
-
-version 1.2
-by yuha
+[https://learngitbranching.js.org/?NODEMO]()
 
