@@ -52,8 +52,14 @@ git mv <file_from> <file_to> //相当于：
 
 ---
 
-##### 恢复操作
+##### 恢复与撤销
 ```
+情况一：commit后发现有遗漏
+	   重新提交并合并替代上一次提交，两次整合为一次新的提交
+如： git commit -m 'initial commit'
+  	 git add <forgotten_file>
+	 git commit --amend  //amend命令
+	 
 git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
 git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
 ```
@@ -77,6 +83,24 @@ git checkout <name> //切换当前分支(会改变本地内容)
 git merge <name> //把分支xxx合并到当前分支（若2分支diverged，叫合并提交，自动创建基于2个父提交的新快照，并指向它）
 //合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理
 ```
+---
+##### 远程仓库
+```
+git remote  查看已配置的远程仓库服务器
+git remote -v
+
+git remote add <shortname> <url> 添加一个新的远程Git仓库，同时指定一个你可以轻松引用的简写.
+如果你想拉取 Paul 的仓库中有但你没有的信息，
+可以运行 git fetch pb
+
+git push 生效条件：
+当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，
+你的推送就会毫无疑问地被拒绝。 
+你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。 
+
+```
+
+---
 ##### 远程分支
 ```
 git fetch origin
@@ -87,8 +111,6 @@ git push origin master //将本地主分支推到远程主分支
 git push origin <local_branch> //创建远程分支， origin是远程仓库名
 
 
-
-git remote -v //查看远程仓库
 git push 
 git checkout -b  xxx orgin/xxxx
 git checkout master
