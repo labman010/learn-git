@@ -12,6 +12,7 @@ git push -u origin master //把本地库的所有内容推送到远程库上
 `git push origin master`
 
 ---
+##### 基本操作
 
 ```****
 git status //查看状态
@@ -19,24 +20,52 @@ git clone <地址>
 git add .
 git add <file> //提交到暂存区
 git rm <file> //移除暂存区文件，并提交(git就不会继续跟踪了)也同时移除了工作区文件
-git mv  <file1> <file2> //重命名
 git commit -m “xxx” //暂存区提交到版本库
 git commit -a -m ‘xxxx’ //把'已经跟踪过'的文件暂存起来一并提交，跳过git add步骤
 ```
 git add 可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。  
 
+---
+##### 删除与改名
+```
+情况一：正常删除
+rm  //字面意思，实际上是从工作区移除文件，但暂存区依然存在
+git rm <file> //从暂存区中移除
+常用顺序：先rm，后git rm，后commit  
 
+情况二：想把文件从 Git 仓库中删除（亦即从暂存区域移除），
+但仍然希望保留在当前工作目录中。 
+换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪。
+git rm --cached
+
+名字相关：
+git rm log/\*.log  此命令删除 log/ 目录下扩展名为 .log 的所有文件
+
+改名：
+git mv <file_from> <file_to> //相当于：
+  mv <file_from> <file_to> 
+  git rm <file_from>
+  git add <file_to>
+  这三条命令
+
+```
+
+---
 
 ##### 恢复操作
 ```
 git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
 git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
 ```
+
+---
 ##### 比较
 ```
 git diff //不加参数即默认比较工作区与暂存区
 git diff —staged //比较暂存区与最新本地版本库
 ```
+
+---
 ##### 本地分支
 ```
 git branch <newname> //创建分支，指向当前本地版本库
