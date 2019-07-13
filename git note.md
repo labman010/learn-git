@@ -82,6 +82,12 @@ git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
 git merge <name> //把分支xxx合并到当前分支（若2分支diverged，叫合并提交，自动创建基于2个父提交的新快照，并指向它）
 //合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理
+
+git log 高级用法:
+	git log --oneline --decorate
+	--oneline 把每个提交压缩为一行，只显示id和第一行信息
+	--decorate 显示指向提交的所有引用（分支、标签等）
+
 ```
 ---
 ##### 远程仓库
