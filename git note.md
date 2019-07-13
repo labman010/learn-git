@@ -75,13 +75,21 @@ git diff —staged //比较暂存区与最新本地版本库
 ##### 本地分支
 ```
 git branch <newname> //创建分支，指向当前本地版本库
-git branch -d <name> //删除分支
+git branch -d <name> //删除分支（比如有2个分支指向同一位置）
 git branch -v //查看每一个分支的最后一次提交
 git branch --merged //查看哪些分支已经合并到当前分支(然后就可以删除那个分支了)
 git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
 git merge <name> //把分支xxx合并到当前分支（若2分支diverged，叫合并提交，自动创建基于2个父提交的新快照，并指向它）
 //合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理
+
+git log 高级用法:
+	git log --oneline --decorate
+	--oneline 把每个提交压缩为一行，只显示id和第一行信息
+	--decorate 显示指向提交的所有引用（分支、标签等）
+git log --oneline --decorate --graph --all 显示分支图表
+
+
 ```
 ---
 ##### 远程仓库
