@@ -75,7 +75,7 @@ git diff —staged //比较暂存区与最新本地版本库
 ##### 本地分支
 ```
 git branch <newname> //创建分支，指向当前本地版本库
-git branch -d <name> //删除分支
+git branch -d <name> //删除分支（比如有2个分支指向同一位置）
 git branch -v //查看每一个分支的最后一次提交
 git branch --merged //查看哪些分支已经合并到当前分支(然后就可以删除那个分支了)
 git checkout -b <newname> //新建分支并切换到上面
@@ -87,6 +87,8 @@ git log 高级用法:
 	git log --oneline --decorate
 	--oneline 把每个提交压缩为一行，只显示id和第一行信息
 	--decorate 显示指向提交的所有引用（分支、标签等）
+git log --oneline --decorate --graph --all 显示分支图表
+
 
 ```
 ---
