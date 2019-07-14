@@ -133,11 +133,9 @@ git push <远程主机名> <本地分支名> : <远程分支名>
 git pull <远程主机名> <远程分支名> : <本地分支名>//注意！ 
 如git push origin dev:dev 
 //推送本地的dev分支到远程origin的dev分支(远程没有会自动创建)
+//同 git push origin <branchName>
 
-git push origin master //将本地主分支推到远程主分支
 git push -u origin master //上基础上设置默认主机为origin
-git push origin <local_branch> //创建远程分支， origin是远程仓库名
-git push origin --delete <branchName>//删除远程分支指针
 
 git push --set-upstream origin  xxx
 //将本地的xxx分支推送到origin主机,之后就改变了默认的远程关联仓库
@@ -154,9 +152,9 @@ git tag 打标签//未细看
 
 git branch -d <local_branch> //删除本地分支
 
-git push origin :master
+git push origin :<branchName>
 等同于
-git push origin -d master
+git push origin -d <branchName>
 删除指定的远程分支
 
 
