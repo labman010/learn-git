@@ -118,6 +118,8 @@ git push 生效条件：
 ```
 远程仓库origin，远端分支master，本地分支master
 
+git remote show origin //！！查看远程分支和本地分支的对应关系
+
 git fetch  //将某个远程主机的更新，全部取回本地
 
 git fetch origin
@@ -128,17 +130,35 @@ git fetch origin
 //用于要统计每个服务器分支最新的领先与落后数字
 
 git push <远程主机名> <本地分支名> : <远程分支名> 
+git pull <远程主机名> <远程分支名> : <本地分支名>//注意！ 
+如git push origin dev:dev 
+//推送本地的dev分支到远程origin的dev分支(远程没有会自动创建)
+
 git push origin master //将本地主分支推到远程主分支
+git push -u origin master //上基础上设置默认主机为origin
 git push origin <local_branch> //创建远程分支， origin是远程仓库名
 git push origin --delete <branchName>//删除远程分支指针
 
-git push --set-upstream origin newb
+git push --set-upstream origin  xxx
+//将本地的xxx分支推送到origin主机,之后就改变了默认的远程关联仓库
 
 git push 
 git checkout -b  xxx orgin/xxx //本地新建分支并拉取远程分支到此
-git checkout master  //切换分支
 git pull //抓取信息，更新本地数据库和本地工作区文件
 git pull //基本是一个git fetch紧接着一个git merge 命令
 git tag 打标签//未细看
+```
+
+```
+分支的删除
+
+git branch -d <local_branch> //删除本地分支
+
+git push origin :master
+等同于
+git push origin -d master
+删除指定的远程分支
+
+
 ```
 
