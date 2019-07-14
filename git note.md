@@ -74,9 +74,13 @@ git diff —staged //比较暂存区与最新本地版本库
 ---
 ##### 本地分支
 ```
+
+git branch  //查看本地分支
 git branch <newname> //创建分支，指向当前本地版本库
+git branch -a //查看远程分支
 git branch -d <name> //删除分支（比如有2个分支指向同一位置）
 git branch -v //查看每一个分支的最后一次提交
+git branch -vv //在-v基础上增加查看每个分支的跟踪分支（上游分支）
 git branch --merged //查看哪些分支已经合并到当前分支(然后就可以删除那个分支了)
 git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
@@ -114,6 +118,9 @@ git push 生效条件：
 ```
 远程仓库origin，远端分支master，本地分支master
 
+git remote show origin //！！查看远程分支和本地分支的对应关系
+
+git fetch  //将某个远程主机的更新，全部取回本地
 
 git fetch origin
 //查找 “origin” 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针指向新的、更新后的位置。
@@ -123,15 +130,35 @@ git fetch origin
 //用于要统计每个服务器分支最新的领先与落后数字
 
 git push <远程主机名> <本地分支名> : <远程分支名> 
-git push origin master //将本地主分支推到远程主分支
-git push origin <local_branch> //创建远程分支， origin是远程仓库名
-git push origin --delete <branchName>//删除远程分支指针
+git pull <远程主机名> <远程分支名> : <本地分支名>//注意！ 
+如git push origin dev:dev 
+//推送本地的dev分支到远程origin的dev分支(远程没有会自动创建)
+//同 git push origin <branchName>
+
+git push origin <branchName>
+git push -u origin <branchName>//上基础上设置默认主机为origin
+
+git push --set-upstream origin  xxx
+//将本地的xxx分支推送到origin主机,之后就改变了默认的远程关联仓库
 
 git push 
-git checkout -b  xxx orgin/xxxx
-git checkout master
+git checkout -b  xxx orgin/xxx //本地新建分支并拉取远程分支到此
+
 git pull //抓取信息，更新本地数据库和本地工作区文件
 git pull //基本是一个git fetch紧接着一个git merge 命令
 git tag 打标签//未细看
+```
+
+```
+分支的删除
+
+git branch -d <local_branch> //删除本地分支
+
+git push origin :<branchName>
+等同于
+git push origin -d <branchName>
+删除指定的远程分支
+
+
 ```
 
