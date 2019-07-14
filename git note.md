@@ -81,7 +81,8 @@ git branch --merged //查看哪些分支已经合并到当前分支(然后就可
 git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
 git merge <name> //把分支xxx合并到当前分支（若2分支diverged，叫合并提交，自动创建基于2个父提交的新快照，并指向它）
-//合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理
+//合并提交使用两个分支的末端所指的快照以及这两个分支的工作祖先，做一个简单的三方合并。
+//合并提交当对同一文件同一处有不同改动时，会冲突，需要用一些手段处理。
 
 git log 高级用法:
 	git log --oneline --decorate
@@ -111,8 +112,12 @@ git push 生效条件：
 ---
 ##### 远程分支
 ```
+远程仓库origin，远端分支master，本地分支master
+
+
 git fetch origin
 //查找 “origin” 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针指向新的、更新后的位置。
+//结果是本地———远端分叉
 
 git push <远程主机名> <本地分支名> : <远程分支名> 
 git push origin master //将本地主分支推到远程主分支
