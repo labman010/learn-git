@@ -119,15 +119,19 @@ git fetch origin
 //查找 “origin” 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针指向新的、更新后的位置。
 //结果是本地———远端分叉
 
+先git fetch --all 后 git branch -vv
+//用于要统计每个服务器分支最新的领先与落后数字
+
 git push <远程主机名> <本地分支名> : <远程分支名> 
 git push origin master //将本地主分支推到远程主分支
 git push origin <local_branch> //创建远程分支， origin是远程仓库名
-
+git push origin --delete <branchName>//删除远程分支指针
 
 git push 
 git checkout -b  xxx orgin/xxxx
 git checkout master
-git pull //抓取信息，更新本地数据库和本地工作区文件？
+git pull //抓取信息，更新本地数据库和本地工作区文件
+git pull //基本是一个git fetch紧接着一个git merge 命令
 git tag 打标签//未细看
 ```
 
