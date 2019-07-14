@@ -132,9 +132,11 @@ git push origin master //将本地主分支推到远程主分支
 git push origin <local_branch> //创建远程分支， origin是远程仓库名
 git push origin --delete <branchName>//删除远程分支指针
 
+git push --set-upstream origin newb
+
 git push 
 git checkout -b  xxx orgin/xxx //本地新建分支并拉取远程分支到此
-git checkout master
+git checkout master  //切换分支
 git pull //抓取信息，更新本地数据库和本地工作区文件
 git pull //基本是一个git fetch紧接着一个git merge 命令
 git tag 打标签//未细看
