@@ -74,9 +74,13 @@ git diff —staged //比较暂存区与最新本地版本库
 ---
 ##### 本地分支
 ```
+
+git branch  //查看本地分支
 git branch <newname> //创建分支，指向当前本地版本库
+git branch -a //查看远程分支
 git branch -d <name> //删除分支（比如有2个分支指向同一位置）
 git branch -v //查看每一个分支的最后一次提交
+git branch -vv //在-v基础上增加查看每个分支的跟踪分支（上游分支）
 git branch --merged //查看哪些分支已经合并到当前分支(然后就可以删除那个分支了)
 git checkout -b <newname> //新建分支并切换到上面
 git checkout <name> //切换当前分支(会改变本地内容)
@@ -114,6 +118,7 @@ git push 生效条件：
 ```
 远程仓库origin，远端分支master，本地分支master
 
+git fetch  //将某个远程主机的更新，全部取回本地
 
 git fetch origin
 //查找 “origin” 是哪一个服务器，从中抓取本地没有的数据，并且更新本地数据库，移动 origin/master 指针指向新的、更新后的位置。
