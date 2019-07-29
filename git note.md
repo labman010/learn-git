@@ -62,6 +62,10 @@ git mv <file_from> <file_to> //相当于：
 	 
 git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
 git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
+
+https://juejin.im/post/5b5ab8136fb9a04f834659ba
+...未完待续
+
 ```
 
 ---
@@ -69,6 +73,8 @@ git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存
 ```
 git diff //不加参数即默认比较工作区与暂存区
 git diff —staged //比较暂存区与最新本地版本库
+
+git diff <commit1> <commit2> //比较两个commit id
 ```
 
 ---
@@ -96,6 +102,48 @@ git log --oneline --decorate --graph --all 显示分支图表
 
 
 ```
+---
+##### tag
+```
+两种标签：轻量标签、附注标签
+git tag -a v1.4 -m 'my version 1.4'  //创建附注标签
+git tag v1.4  //创建轻量标签
+git show  //查看标签信息和对应提交信息
+git tag -l 'v1.5.2*'  //特定模式查找标签
+
+git tag -a <tagname> <部分校验和>  //后期打标签
+
+默认git push 命令并不会传送标签到远程仓库服务器上。 
+必须显式地推送标签到共享服务器上，像共享远程分支一样.
+你可以运行 git push origin [tagname]
+git push origin --tags //把不在远程仓库服务器上的标签全部传送
+
+git tag -d <tagname>  删除轻量标签
+git push <remote>:refs/tags/<tagname> //本地删除后更新远程仓库
+
+git别名：git config --global alias.st status
+//等
+
+```
+---
+##### rebase 变基
+```
+git rebase变基，确保分支串行整洁
+在dev1与master为两个分支的时候，不使用merge
+git checkout dev1
+git rebase master
+然后git checkout master再git merge dev1
+//最后两个分支都在最头上。
+
+rebase高级用法：“重放”
+如：git rebase --onto master server client
+取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，
+然后把它们在 master 分支上重放一遍
+
+变基的风险与处理
+```
+
+
 ---
 ##### 远程仓库
 ```
