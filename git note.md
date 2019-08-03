@@ -63,6 +63,26 @@ git mv <file_from> <file_to> //相当于：
 git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
 git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
 
+～～进度保存
+#在工作正常进行时，突然需要切换到其他分支上处理一些东西
+#这时如果直接切换，那么工作区的改动也会随之跟随到另一个分支
+#如果是add然后再commit一下，有感觉麻烦或者是并不合适。
+#只想将当前状态保存下来，git stash 是一个非常合适命令
+git stash save '这是一条注释'  //保存
+//像栈一样可以多次执行的
+git stash pop //恢复最近的一个进度到工作区，恢复的内容包括工作区和暂存区的改动
+git stash pop --index  //会恢复最近的一个进度到到工作区和暂存区（从哪来回哪去）
+pop命令后都会删除进度，除非apply
+
+https://blog.csdn.net/daguanjia11/article/details/73810577
+
+～～合并冲突解决
+git merge --abort 
+#仅在合并后导致冲突时才使用，
+#重建合并前的状态，但未commit的内容不能恢复
+
+
+
 https://juejin.im/post/5b5ab8136fb9a04f834659ba
 ...未完待续
 
@@ -209,4 +229,9 @@ git push origin -d <branchName>
 
 
 ```
-
+---
+#### repo命令和原理
+```
+repo init
+repo sync
+```
