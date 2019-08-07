@@ -11,6 +11,20 @@ git push -u origin master //把本地库的所有内容推送到远程库上
 由于新建的远程仓库是空的，所以要加上-u这个参数，等远程仓库里面有了内容之后，下次再从本地库上传内容的时候只需下面这样就可以了: 
 `git push origin master`
 
+#### git config ####
+
+`git config --global credential.helper store		//永久保存密码？`
+
+`/etc/gitconfig    git config 时用 --system     //本机设置`
+
+`~/.gitconfig   git config 时用 --global        //本用户设置`
+
+`工作目录.git/config       直接git config	     //本目录全用户本机设置`
+
+
+
+
+
 ---
 ##### 基本操作
 
@@ -162,7 +176,6 @@ rebase高级用法：“重放”
 
 变基的风险与处理
 ```
-
 
 ---
 ##### 远程仓库
