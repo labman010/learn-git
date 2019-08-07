@@ -1,4 +1,4 @@
-##此仓库已经同时关联github和gitee##
+## 此仓库已经同时关联github和gitee ##
 
 it is a normal document.  
 一个可交互的git学习项目，git沙盒：  
