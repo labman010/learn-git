@@ -68,14 +68,14 @@ git mv <file_from> <file_to> //相当于：
 
 ##### 恢复与撤销
 ```
-情况一：commit后发现有遗漏
+~~commit后发现有遗漏
 	   重新提交并合并替代上一次提交，两次整合为一次新的提交
 如： git commit -m 'initial commit'
   	 git add <forgotten_file>
 	 git commit --amend  //amend命令
 	 
-git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
-git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
+~~ git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
+~~ git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
 
 ～～进度保存
 #在工作正常进行时，突然需要切换到其他分支上处理一些东西
@@ -95,6 +95,10 @@ git merge --abort
 #仅在合并后导致冲突时才使用，
 #重建合并前的状态，但未commit的内容不能恢复
 
+~~ git pull 撤销误操作
+## 把远程仓库的合并到本地分支，扰乱了
+git reflog  //命令查看历史变更记录
+git reset --hard HEAD@{n} 或 git reset --hard 40a9a83  //回退
 
 
 https://juejin.im/post/5b5ab8136fb9a04f834659ba
@@ -248,3 +252,4 @@ git push origin -d <branchName>
 repo init
 repo sync
 ```
+
