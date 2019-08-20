@@ -6,7 +6,7 @@
 ```
 git init
 git remote add origin xxx.git //关联到远程
-git push -u origin master //把本地库的所有内容推送到远程库上
+git push -u origin master //把本地库的所有内容推送到远程库上
 ```
 由于新建的远程仓库是空的，所以要加上-u这个参数，等远程仓库里面有了内容之后，下次再从本地库上传内容的时候只需下面这样就可以了: 
 `git push origin master`
@@ -34,7 +34,7 @@ git clone <地址>
 git add .
 git add <file> //提交到暂存区
 git commit -m “xxx” //暂存区提交到版本库
-git commit -a -m ‘xxxx’ //把'已经跟踪过'的文件暂存起来一并提交，跳过git add步骤
+git commit -a -m ‘xxxx’ //把'已经跟踪过'的文件暂存起来一并提交，跳过git add步骤
 
 git log 会按提交时间列出所有的更新。列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明。
 ```
@@ -75,6 +75,7 @@ git mv <file_from> <file_to> //相当于：
 	 git commit --amend  //amend命令
 	 
 ~~ git checkout <file>  //拉取暂存区文件恢复到工作目录（丢弃工作区的改动,比较危险）
+	git checkout <hash> <<file>  //还原特定版本的文件
 ~~ git reset HEAD  <file>  //拉取最近一次提交到版本库的文件到暂存区 （取消暂存，工作区不变）
 
 ～～进度保存
@@ -84,7 +85,7 @@ git mv <file_from> <file_to> //相当于：
 #只想将当前状态保存下来，git stash 是一个非常合适命令
 git stash save '这是一条注释'  //保存
 //像栈一样可以多次执行的
-git stash pop //恢复最近的一个进度到工作区，恢复的内容包括工作区和暂存区的改动
+git stash pop //恢复最近的一个进度到工作区，工作区和暂存区的改动都恢复到工作区。
 git stash pop --index  //会恢复最近的一个进度到到工作区和暂存区（从哪来回哪去）
 pop命令后都会删除进度，除非apply
 
@@ -239,7 +240,7 @@ git tag 打标签//未细看
 
 git branch -d <local_branch> //删除本地分支
 
-git push origin :<branchName>
+git push origin :<branchName> //push空分支
 等同于
 git push origin -d <branchName>
 删除指定的远程分支
@@ -251,5 +252,9 @@ git push origin -d <branchName>
 ```
 repo init
 repo sync
+```
+
+```
+git push origin localbranch:refs/for/******
 ```
 
