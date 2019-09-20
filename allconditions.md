@@ -25,3 +25,14 @@ git add 可
 ```
 
 ---
+
+#####  使用git pull文件时和本地文件冲突怎么办
+
+```
+git stash  //先将本地修改存储起来
+git pull   //暂存了本地修改之后，就可以pull了
+git stash pop stash@{0}   //还原暂存的内容
+
+git mergetool    //解决文件中冲突的的部分
+```
+
