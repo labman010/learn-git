@@ -101,6 +101,8 @@ git merge --abort
 git reflog  //命令查看历史变更记录
 git reset --hard HEAD@{n} 或 git reset --hard 40a9a83  //回退
 
+~~ 撤销 amend
+git reset --hard HEAD@{1}
 
 https://juejin.im/post/5b5ab8136fb9a04f834659ba
 ...未完待续
@@ -257,4 +259,6 @@ repo sync
 ```
 git push origin localbranch:refs/for/******
 ```
+
+ 
 
