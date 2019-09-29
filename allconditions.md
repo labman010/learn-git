@@ -57,10 +57,10 @@ git checkout <hash> <filename>
 
 
 
+
 git revert  后 撤销某个提交，并且把这个操作作为新的提交
 
 git rebase -i
 
 git回退远程提交并amend修改https://blog.csdn.net/zsago/article/details/73618279
 
-git
