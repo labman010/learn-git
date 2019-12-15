@@ -181,6 +181,8 @@ rebase高级用法：“重放”
 取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，
 然后把它们在 master 分支上重放一遍
 
+常用：git pull --rebase  //本地有commit没有push，pull下来别人的新提交，本地commit的parent接到它后面，继续本地修改
+
 变基的风险与处理
 ```
 
