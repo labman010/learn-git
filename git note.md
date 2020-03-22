@@ -253,9 +253,12 @@ git push origin -d <branchName>
 ```
 ---
 #### repo命令和原理
-```
+```c
 repo init
 repo sync
+repo sync -c    //直接同步当前分支的全部东西
+repo forall -c git checkout speed/release/WL_190904    //切换全部分支为xxx
+repo start branch –all xxxx  //切换全分支为xxx  ？？？
 ```
 
 ```
